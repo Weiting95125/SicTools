@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <unistd.h>
+int main(){
+    char input_string[50];
+    char output_string[50];
+    int c1=0,c2=0;
+    gets(input_string);
+    if(input_string[c1]!=' '){
+        output_string[c2]='(';
+        c2++;
+        for (;input_string[c1]!='\0';c1++,c2++){
+            if(input_string[c1]==' '){
+                output_string[c2]=')';
+                c2++;
+                output_string[c2]=' ';
+                c2++;
+                output_string[c2]='(';
+                continue;
+            };
+            output_string[c2]=input_string[c1];
+        };
+    };
+    output_string[c2]=')';
+    c2++;
+    output_string[c2]='\0';
+    puts(output_string);
+}
